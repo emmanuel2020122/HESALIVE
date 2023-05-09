@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/style1.css">
+       <title>My Landing Page </title>
+       <style>
+       .mains{
+            display:inline-block;
+            cursor:pointer;
+            margin-left:10px;
+            margin-right:10px
+       }
+       .bar1, .bar2, .bar3{
+            width:35px;
+            height:5px;
+            background-color: #FFFFFF;
+            margin:6px 0;
+            transition:0.4s;
+       }
+       .change .bar1{
+            -webkit-transform:rotate(-45deg)
+            translate(-9px,6px);
+            transform: rotate(-45deg)
+            translate(-9px, 6px);
+       }
+       .change .bar2{opacity: 0;}
+       .change .bar3{
+            -webkit-transform:rotate(45deg)
+            translate(-8px, -8px);
+            transform:rotate(45deg)
+            translate(-8px, -8px);
+       }
+
+       .card {
+            padding: 1px;
+            margin-left:auto; 
+            margin-right: auto; 
+            margin-bottom: 20px;
+            border-radius: 5px;
+            justify-content: flex-start;
+            width: auto;
+            height: auto;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+            background-color: #FFFFFF;
+            text-decoration: none;
+           
+          
+       }
+       p{
+            text-align: center;
+       }
+
+       .card:hover {
+            padding: 5;
+            transform: scale(1.05, 1.05);
+            background-color: #FFFFFF;
+            border-radius: 5px;
+       }
+       .dropdown {
+  position: relative;
+  display: inline-block;
+  border-radius: 5px;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown-content a {
+  color: #000000;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-radius: 5px;
+}
+
+.dropdown-content a:hover {background-color:orange;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+   
+      </style>
+     </head>
+    <body>
+         <header>
+         
+            <img src="../../img/IMG-20211122-WA0052.jpg" width="180px" height="180px"/>
+
+         </header>
+        
+     
+         <section class="features  flex-parent " >
+         <div class="dropdown mains"  >
+               <div class="bar1"></div>
+               <div class="bar2"></div>
+               <div class="bar3"></div>
+               <div class="dropdown-content">
+                    <a href="./cosmetics"><b>Cosmetics</b></a>
+                    <a href="#"><b>Stationary</b></a>
+                    <a href="./laundry"><b>Laundry</b></a>
+                    <a href="#"><b>Home</b></a>
+                    <a href="#"><b>About</b></a>
+                  </div>
+          </div>
+          <input class="mysearch" id='search' name="searchitem" type="search" placeholder="search for an item...."/><i><img src="../../img/search-alt-2-regular-24.png"></i>
+           
+          <!-- <div style="margin-left:auto;  border: 3px solid #CD853F;" id="cart-icon"><img src="iconCart.png"width="50px"height="40px"/> </div>-->
+          <i style="margin-left:auto;" class='bx bxs-shopping-bag' id="cart-icon" ><img src="../../img/shopping-bag-solid-24.png" ></i>
+          <!--Cart-->
+          <div class="cart">
+          <h2 class="cart-title">Your Cart</h2>
+          <!--Content-->
+          <div class="cart-content">
+               <div class="cart-box">
+               <img src="" alt="" class="cart-img">
+              <!-- <div class="detail-box"> 
+                    <div class="cart-product-title"></div>
+                    <div class="cart-price"></div>
+                    <input type="number" value="1" class="cart-quantity">
+               </div>
+               <--Remove Cart--> 
+               <i class='bx bxs-trash-alt cart-remove' ><img src="../../img/trash-alt-solid-24.png"/></i>--> 
+               
+          </div>
+          <!-- Total -->
+          <div class="total">
+          <div class="total-title"><b>Total</b></div>
+          <div class="total-price">0.00GHS</div>
+          </div> </br>
+          
+          <!--Buy Button-->
+          <input type="submit"  value="Buy Now" id="btn" class="btn-buy" ></br></br>
+          <!--Cart Close-->
+          <i class='bx bx-x' id="close-cart"><img src="../../img/x-regular-24.png"></i>
+          </div>
+
+          <!-- <a href="" class="btn">COSMETICS</a> 
+          <a href="" class="btn">PROVISIONS </a>
+          <a href="" class="btn">STATIONARY </a>
+          <a href="" class="btn">LAUNDRY & CLEANING </a>
+          <!--<a href="" class="searchButton"><img src="searchIcon.png" width="30px" height="36px"/></a>--> 
+
+     </section>
+     <section class="rice flex-parent">
+     <div class="  flex-item-left"> 
+          <% result.forEach(function(item) { %>    
+          <a  href="#" class=" card ">
+               <div ><img src = <%= item.image %> width="220px" height="220px" class="product-img">
+                     <b><p class="product-title"><%= item.name %></p></b>
+               <div class="cart-price">
+                    <%= item.price %>
+               </div>  
+                    <p> <button class="input" >+Add to cart </button></p>
+                    <input type="number" class="p_id" value=<%= item.id %> hidden>
+                    <input type="number" class="price" value=<%= item.price %> hidden>
+               </div>
+               
+               </a >
+     </div>
+     <% }) %>  
+                    
+                                
+     </section>
+         <footer  class="features  flex-parent "  >
+         <ul>
+             <li><a href="#"> Facebook</a></li>
+             <li><a href="#"> instagram</a></li>
+             <li><a href="#"> Privacy Policy</a></li>
+             <li><a href="#"> Terms of Service</a></li>
+             <li><a href="#"> Copyright Information</a></li>
+         </ul>
+         </footer>
+
+       <!--Link to Js-->
+         <script src="../../js/main.js">
+
+         </script>
+
+        
+
+    </body>
+</html>
+
+
